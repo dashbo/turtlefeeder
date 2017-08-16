@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import picamera
+import os
 import RPi.GPIO as GPIO
 from time import sleep, localtime, time
 
@@ -72,7 +73,8 @@ if __name__ == '__main__':
             timestamp = str(localtime().tm_hour) + str(localtime().tm_min) + str(localtime().tm_sec)
             print('Turtle feed day and time: ' + str(localtime().tm_mday) + '/' + str(localtime().tm_mon) + '/' + str(localtime().tm_year) + ' ' + str(localtime().tm_hour) + ':' + str(localtime().tm_min) + ':' + str(localtime().tm_sec) + '.')
             print('Number of meals is ' + str(meals) + '.')
-            camera.start_recording('ttlfeed_' + timestamp + '.mjpeg')
+            vidName = 'ttlfeed_' + timestamp
+            camera.start_recording(vidName + '.h264')
             camera.wait_recording(1)
             feedTurtle()
             sleep(1)
@@ -86,3 +88,5 @@ if __name__ == '__main__':
                 sleep(.1)
             camera.wait_recording(3)
             camera.stop_recording()
+            os.system('MP4Box -add ' + vidName + '.h264 ' + vidName + '.mp4')
+            
