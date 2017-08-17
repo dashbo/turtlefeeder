@@ -67,10 +67,10 @@ def feedTurtleExtra():
 if __name__ == '__main__':
 
     #For the Twitter API
-    APP_KEY = 'p7apqWomqliCOn42akveSOcRH'
-    APP_SECRET = '7BorIB1lNTDzlpWXeJ8zN9EMasGp5slWMzPbnA6mz6G7Wh4gTu'
-    OAUTH_TOKEN = '897980465872650241-zer1uzFweQKGBn68auJTN5qyAuxdeRD'
-    OAUTH_TOKEN_SECRET = 'NaBJ17wz8rt779UBK02CXfbogrhG9sYk5DRid0vLxYv1k'
+    APP_KEY = 'your app key'
+    APP_SECRET = 'your secret app key'
+    OAUTH_TOKEN = 'your oauth token'
+    OAUTH_TOKEN_SECRET = 'your secret oauth token'
     twitter = Twython(APP_KEY, APP_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
     auth = twitter.get_authentication_tokens()
     
